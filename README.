@@ -1,0 +1,144 @@
+import math
+
+def add(x, y):
+    return x + y
+
+def subtract(x, y):
+    return x - y
+
+def multiply(x, y):
+    return x * y
+
+def divide(x, y):
+    if y == 0:
+        return "Cannot divide by zero"
+    return x / y
+
+def square_root(x):
+    if x < 0:
+        return "Invalid input. Cannot calculate square root of a negative number"
+    return math.sqrt(x)
+
+def power(x, y):
+    return x ** y
+
+def factorial(x):
+    if x < 0:
+        return "Invalid input. Cannot calculate factorial of a negative number"
+    if x == 0:
+        return 1
+    return x * factorial(x - 1)
+
+def sine(x):
+    return math.sin(math.radians(x))
+
+def cosine(x):
+    return math.cos(math.radians(x))
+
+def tangent(x):
+    return math.tan(math.radians(x))
+
+def logarithm(x, base):
+    return math.log(x, base)
+
+def gcd(x, y):
+    return math.gcd(x, y)
+
+def lcm(x, y):
+    return x * y // math.gcd(x, y)
+
+def absolute_value(x):
+    return abs(x)
+
+def radian_to_degree(x):
+    return math.degrees(x)
+
+def degree_to_radian(x):
+    return math.radians(x)
+
+def natural_exponential(x):
+    return math.exp(x)
+
+def calculator():
+    print("Select operation:")
+    print("1. Add")
+    print("2. Subtract")
+    print("3. Multiply")
+    print("4. Divide")
+    print("5. Square Root")
+    print("6. Exponentiation")
+    print("7. Factorial")
+    print("8. Sine")
+    print("9. Cosine")
+    print("10. Tangent")
+    print("11. Logarithm")
+    print("12. Greatest Common Divisor (GCD)")
+    print("13. Least Common Multiple (LCM)")
+    print("14. Absolute Value")
+    print("15. Radian to Degree Conversion")
+    print("16. Degree to Radian Conversion")
+    print("17. Natural Exponential")
+    print("18. Exit")
+
+    while True:
+        choice = input("Enter choice (1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18): ")
+
+        if choice == '18':
+            print("Exiting the calculator.")
+            break
+
+        if choice not in ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17'):
+            print("Invalid choice. Please try again.")
+            continue
+
+        if choice in ('5', '6', '7', '8', '9', '10', '11', '11', '14', '15', '16', '17'):
+            num = float(input("Enter the number: "))
+
+            if choice == '5':
+                result = square_root(num)
+            elif choice == '6':
+                power_num = float(input("Enter the power: "))
+                result = power(num, power_num)
+            elif choice == '7':
+                result = factorial(int(num))
+            elif choice == '8':
+                result = sine(num)
+            elif choice == '9':
+                result = cosine(num)
+            elif choice == '10':
+                result = tangent(num)
+            elif choice == '11':
+                base = float(input("Enter the base: "))
+                result = logarithm(num, base)
+            elif choice == '14':
+                result = absolute_value(num)
+            elif choice == '15':
+                result = radian_to_degree(num)
+            elif choice == '16':
+                result = degree_to_radian(num)
+            elif choice == '17':
+                result = natural_exponential(num)
+            elif choice == '12':
+                num2 = float(input("Enter the second number: "))
+                result = gcd(int(num), int(num2))
+            elif choice == '13':
+                num2 = float(input("Enter the second number: "))
+                result = lcm(int(num), int(num2))
+        else:
+            num1 = float(input("Enter the first number: "))
+            num2 = float(input("Enter the second number: "))
+
+            if choice == '1':
+                result = add(num1, num2)
+            elif choice == '2':
+                result = subtract(num1, num2)
+            elif choice == '3':
+                result = multiply(num1, num2)
+            elif choice == '4':
+                result = divide(num1, num2)
+
+        print("Result: ", result)
+        print()
+
+if __name__ == "__main__":
+    calculator()
